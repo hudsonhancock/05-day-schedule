@@ -3,7 +3,7 @@
 This is a day schedule app.
 [Link to deployed web application](https://hudsonhancock.github.io/05-day-schedule/)
 
-![screenshot of web app - password generator]()
+![screenshot of web app - password generator](https://github.com/hudsonhancock/05-day-schedule/blob/main/Untitled.jpg?raw=true)
 
 This web application will help schedule your day.
 
