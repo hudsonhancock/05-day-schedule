@@ -11,17 +11,11 @@ $( document ).ready(function() {
 let nowHour24 = moment().format('H');
 let nowHour12 = moment().format('h');
 
-console.log(nowHour24)
-console.log(nowHour12)
-
 currentDay = moment().format('dddd');
 currentDate = moment().format("MMM Do YY");
 currentTime = moment().format('h:mm a');
 
 compTime = Math.floor(moment().format('h'));
-console.log(compTime);
-
-console.log(currentTime);
 
 $('#currentDay').text(currentDay);
 $('#currentDate').text(currentDate);
@@ -64,11 +58,10 @@ function getCurrentTime(){
 
 const savedData = JSON.parse(localStorage.getItem('Calendar Data')) || [];
 
-    function loadData(savedData){
+    function loadData(data){
         for(i=0;i<dataArray.length;i++){
-            $('main').children().eq(i).children().eq(0).children('input').val(savedData[i].description);
+            $('main').children().eq(i).children().eq(0).children('input').val(data[i].description);
         }
-        
     }
 
     function saveContent(){
@@ -82,28 +75,33 @@ const savedData = JSON.parse(localStorage.getItem('Calendar Data')) || [];
         alert('content saved');
     }
     
+
     setInterval(getCurrentTime, 1000);
     loadData(savedData);
     setColors();
     $('.saveBtn').click(saveContent);
+    var blockTime = $('main').children().eq(i).children().eq(1).children('p').text();
     
 function setColors(){
     for(i=0;i<dataArray.length;i++){
-        var blockTime = $('main').children().eq(i).children().eq(1).children('p').text();
-        var descriptionBox = $('main').children().eq(i).children().eq(0);
-        $('main').children().eq(i).children().eq(1).children('p').css({"color": "red"})
-        console.log(blockTime);
+        var background = $('main').children().eq(i).children().eq(0);
+        var hourTime = $('main').children().eq(i).children().eq(0).attr('id');
+        console.log(hourTime);
 
-        if(blockTime == nowHour24){
-            descriptionBox.css({"background-color": "red"})
-        } else if (blockTime > nowHour24){
-            descriptionBox.css({"background-color": "green"})
-        } else {
-            descriptionBox.css({"background-color": "grey"})
+        if(hourTime > nowHour24){
+            background.css({"background-color": "green"});
+        } else if(hourTime == nowHour24){
+            background.css({"background-color": "red"});
+        } else{
+            background.css({"background-color": "lightgrey"});
         }
     }
-    
+
 }
+
+
+    
+    
 
     
 });
