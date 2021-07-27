@@ -61,6 +61,7 @@ function getCurrentTime(){
         description: ''
     }, 
 ]
+localStorage.setItem('Calendar Data', JSON.stringify(dataArray));
 
 const savedData = JSON.parse(localStorage.getItem('Calendar Data')) || [];
 
