@@ -72,12 +72,14 @@ const savedData = JSON.parse(localStorage.getItem('Calendar Data')) || [];
     }
 
     function saveContent(){
+        
         for(i=0;i<dataArray.length;i++){
             var descriptionText = $('main').children().eq(i).children().eq(0).children('input').val();
             dataArray[i].description = descriptionText;
             console.log(descriptionText);
             localStorage.setItem('Calendar Data', JSON.stringify(dataArray));
         }
+        alert('content saved');
     }
     
     setInterval(getCurrentTime, 1000);
