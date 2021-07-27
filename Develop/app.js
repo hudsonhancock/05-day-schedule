@@ -62,6 +62,7 @@ function getCurrentTime(){
     }, 
 ]
 localStorage.setItem('Calendar Data', JSON.stringify(dataArray));
+loadData(savedData);
 
 const savedData = JSON.parse(localStorage.getItem('Calendar Data')) || [];
 
@@ -84,7 +85,7 @@ const savedData = JSON.parse(localStorage.getItem('Calendar Data')) || [];
     }
     
     setInterval(getCurrentTime, 1000);
-    loadData(savedData);
+    
     setColors();
     $('.saveBtn').click(saveContent);
     
