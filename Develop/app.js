@@ -77,7 +77,7 @@ const savedData = JSON.parse(localStorage.getItem('Calendar Data')) || [];
     
 
     setInterval(getCurrentTime, 1000);
-    loadData(savedData);
+    // loadData(savedData);
     setColors();
     $('.saveBtn').click(saveContent);
     var blockTime = $('main').children().eq(i).children().eq(1).children('p').text();
